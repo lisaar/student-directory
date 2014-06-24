@@ -1,3 +1,4 @@
+#This code prints the name of the students of June cohort 2014 of makers academy
 puts "The students of my cohort at Makers Academy"
 puts "-----------------"
 puts "Chloe"
