@@ -1,14 +1,30 @@
 # This code is an array of the students in the June cohort at MA
 students = [
-	"Chloe", 
-	"Hannah Waxman", 
-	"Zoe Bryant", 
-	"Lisa Altmann-Richer", 
-	"Marco Araujo", 
-	"Jenny Wang", 
-	"Nicola Aitken", 
-	"Jean", 
-	"Eddie"
+	{:name => "Dave", :cohort => :june},
+	{:name => "Eddie", :cohort => :june},
+	{:name => "Catharina", :cohort => :june},
+	{:name => "Igor", :cohort => :june},
+	{:name => "Marco", :cohort => :june},
+	{:name => "Lisa", :cohort => :june},
+	{:name => "Michiel", :cohort => :june},
+	{:name => "Jean", :cohort => :june},
+	{:name => "Nicola", :cohort => :june},
+	{:name => "Jennie", :cohort => :june},
+	{:name => "Iona", :cohort => :june},
+	{:name => "Nikesh", :cohort => :june},
+	{:name => "Chloe", :cohort => :june},
+	{:name => "Toan", :cohort => :june},
+	{:name => "Jamie", :cohort => :june},
+	{:name => "Peter", :cohort => :june},
+	{:name => "Talal", :cohort => :june},
+	{:name => "Charlie", :cohort => :june},
+	{:name => "Charlotte", :cohort => :june},
+	{:name => "Thomas", :cohort => :june},
+	{:name => "Zoe", :cohort => :june},
+	{:name => "Hannah", :cohort => :june},
+	{:name => "Joe", :cohort => :june},
+	{:name => "Alex", :cohort => :june},
+	{:name => "Jeremy", :cohort => :june}
 ]
 #This section defines the  methods
 def print_header
@@ -16,10 +32,10 @@ def print_header
 	puts "-----------------"
 end
 
-def print_names(names)
-names.each do |name|
-	puts name
-end
+def print_names(students)
+	students.each do |student|
+		puts "#{student[:name]} (#{student[:cohort]} cohort)"
+	end
 end
 
 def print_footer(names)
