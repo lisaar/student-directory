@@ -6,11 +6,13 @@ puts "Hannah Waxman"
 puts "Zoe Bryant"
 puts "Lisa Altmann-Richer"
 puts "Marco Araujo"
+puts "Jenny Wnag"
+puts "NIcola Aitken"
 puts "Jean"
 puts "Eddie"
 
-#This code prints the number of students in the cohort
-print "Overall, we have "
-print "7"
-puts "students in our cohort"
+#Variable to create student count
+student_count = 9
 
+#This code prints the number of students in the cohort
+print "Overall, we have #{student_count} students in our cohort"
