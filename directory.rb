@@ -8,3 +8,9 @@ puts "Lisa Altmann-Richer"
 puts "Marco Araujo"
 puts "Jean"
 puts "Eddie"
+
+#This code prints the number of students in the cohort
+print "Overall, we have "
+print "7"
+puts "students in our cohort"
+
