@@ -1,4 +1,4 @@
-# This code defines the students in the cohort inside of an array
+# This code is an array of the students in the June cohort at MA
 students = [
 	"Chloe", 
 	"Hannah Waxman", 
@@ -10,12 +10,23 @@ students = [
 	"Jean", 
 	"Eddie"
 ]
-#This code prints the name of the students of June cohort 2014 of makers academy
-puts "The students of my cohort at Makers Academy"
-puts "-----------------"
-students.each do |student|
-	puts student
+#This section defines the  methods
+def print_header
+	puts "The students of my cohort at Makers Academy"
+	puts "-----------------"
 end
 
-#This code prints the number of students in the cohort
-puts "Overall, we have #{students.length} students in our cohort"
+def print_names(names)
+names.each do |name|
+	puts name
+end
+end
+
+def print_footer(names)
+	puts "Overall, we have #{names.length} students in this cohort"
+end
+
+#This code calls the methods above
+print_header
+print_names(students)
+print_footer(students)
