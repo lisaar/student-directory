@@ -1,4 +1,5 @@
 # This code is an array of the students in the June cohort at MA
+=begin
 students = [
 	{:name => "Dave", :cohort => :june},
 	{:name => "Eddie", :cohort => :june},
@@ -26,6 +27,27 @@ students = [
 	{:name => "Alex", :cohort => :june},
 	{:name => "Jeremy", :cohort => :june}
 ]
+=end
+
+#Hash Input methods
+def input_students
+	puts "Please enter the names of the students"
+	puts "To finish, just hit return twice"
+	# Empty array creation
+	students = []
+	#Get the 1st name
+	name = gets.chomp
+	#While name is not empty, repeat this
+	while !name.empty? do
+		#add the student hash to the array
+		students << {:name => name, :cohort => :june}
+		puts "Now we have #{students.length} students"
+		#get another name from the user
+		name = gets.chomp
+	end
+	#return the array of students
+	students
+end
 #This section defines the  methods
 def print_header
 	puts "The students of my cohort at Makers Academy"
@@ -43,6 +65,7 @@ def print_footer(names)
 end
 
 #This code calls the methods above
+students = input_students
 print_header
 print_names(students)
 print_footer(students)
