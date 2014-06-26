@@ -33,18 +33,28 @@ students = [
 
 #Interactive menu method
 def interactive_menu
-	#students = []
 	#loop will allow to repeat from step 1
+	introduction
 	loop do
 		print_menu
+		print "> "
 		process(gets.chomp)
 	end
 end
 
+def introduction
+	puts "Welcome to the Makers Academy student directory.\n "
+	puts "** Please type a number to select an item from the menu and press RETURN to continue **"
+end
+
 	# A method to print the menu
 def print_menu
-	puts "1. Input name of student"
-	puts "2. Show the students"
+	puts "\nMENU"
+	puts "1. Input the names of students into the directory"
+	puts "2. Display student directory"
+	puts "3. Show students ordered by cohort"
+	puts "4. Show students whose names begin with the letter 'A'"
+	puts "5. Show students who have less than 12 letters in their name"
 	puts "9. Exit"
 end
 	#A method to print the students
@@ -63,11 +73,19 @@ def process(selection)
 		when "2"
 			show_students
 			# show the students
+		when "3"
+			names_by_cohort
+		when "4"
+			print_names_begin_a
+		when "5"
+			print_length_less_12
 		when "9"
 			exit # this will case the program to terminate
 		else 
 			puts "I don't know what you meant, try again"
 		end
+			puts "Press RETURN to retur to the menu"
+			gets
 	end
 
 		
@@ -83,9 +101,9 @@ def input_students
 	while !name.empty? do
 		#Gets month
 		puts "Enter the month"
-		month = gets.chomp.downcase.to_sym
+		month = gets.chomp.capitalize.to_sym
 		if month.empty?
-			month = :june
+			month = :June
 		end
 		#Gets their hobbies
 		puts "Enter their hobbies"
@@ -103,14 +121,14 @@ end
 #This section defines the  methods
 #print_header method just prints the header
 def print_header
-	puts "The students of my cohort at Makers Academy"
+	puts "\nDirectory of students at Makers Academy"
 	puts "-----------------"
 end
 
 #names method takes an array (which is an array multiple 2 element hashes) and prints each element of the array along with its index number
-def print_student_list
-	@students.each_with_index do |student, index|
-		puts "#{index + 1}. #{student[:name]} - #{student[:cohort]} cohort, hobbies: #{student[:hobbies]}"
+def print_student_list()
+	@students.each.with_index(1) do |student, index|
+		puts "#{index}. #{student[:name]} - #{student[:cohort]} cohort, hobbies: #{student[:hobbies]}"
 	end
 end
 #This is the method that sorts the students by cohort
@@ -126,15 +144,17 @@ def print_names
 	print_student_list
 end
 
+
 #only prints those elements of the students array that begin with an A
 def print_names_begin_a
 	puts "This is a list of students whose names begin with an A"
 	name_begin_a = @students.select {|student| student[:name].start_with?('a' , 'A')}
 
 	if name_begin_a.empty?
-		puts "-There are no students whose names begin with an 'A'"
+		puts "-There are no students whose names begin with an 'A'\n "
 	else
-		print_student_list(name_begin_a)
+		name_begin_a.each.with_index(1) do |student, index|
+		puts "#{index}. #{student[:name]} - #{student[:cohort]} cohort, hobbies: #{student[:hobbies]}" end
 	end	
 end
 
@@ -144,9 +164,10 @@ def print_length_less_12
 	name_less_than_12_letters = @students.select { |student| student[:name].length < 12 }
 	
 	if name_less_than_12_letters.empty?
-		puts "-There are no students who have less than 12 letters in their name"
+		puts "-There are no students who have less than 12 letters in their name\n "
 	else
-		print_student_list(name_less_than_12_letters)
+		name_less_than_12_letters.each.with_index(1) do |student, index|
+		puts "#{index}. #{student[:name]} - #{student[:cohort]} cohort, hobbies: #{student[:hobbies]}" end
 	end
 end
 
@@ -154,7 +175,7 @@ end
 
 #prints the total number of elements in the students array i.e. total number of students
 def print_footer
-	puts "Overall, we have #{@students.length} students in this cohort"
+	puts "\n   Overall, we have #{@students.length} students in this cohort"
 end
 
 interactive_menu
